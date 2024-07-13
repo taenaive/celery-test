@@ -1,8 +1,6 @@
 # Celery Test Play
 
-This shows you how to do celery in python
-
-* celery -A main worker --loglevel=INFO
+This project shows you how to do celery in python
 
 ## Installation
 
@@ -23,13 +21,14 @@ Use the package manager to install redis
   ## How to run
 
   ```bash
-  celery -A src.main worker --loglevel=INFO
+  export PYTHONPATH=$PYTHONPATH:$(pwd)/src
+  celery -A main worker --loglevel=INFO
   ```
 
 ## Run on another terminal to test
 
 ```bash
->>> from src.main import add
+>>> from main import add
 >>> result1 = add(100,100)
 >>> result1
 200
@@ -45,7 +44,7 @@ Use the package manager to install redis
 ```bash
 pip install flower
 
-celery -A src.main flower --loglevel=INFO
+celery -A main flower --loglevel=INFO
 # --OR--
 celery --broker="redis://localhost:6379" flower --loglevel=INFO
 ```
