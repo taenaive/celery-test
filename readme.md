@@ -1,4 +1,4 @@
-# Celery Test playground
+# Celery Test Play
 
 This shows you how to do celery in python
 
@@ -23,13 +23,13 @@ Use the package manager to install redis
   ## How to run
 
   ```bash
-  celery -A main worker --loglevel=INFO
+  celery -A src.main worker --loglevel=INFO
   ```
 
 ## Run on another terminal to test
 
 ```bash
->>> from main import add
+>>> from src.main import add
 >>> result1 = add(100,100)
 >>> result1
 200
@@ -44,6 +44,9 @@ Use the package manager to install redis
 
 ```bash
 pip install flower
-celery -A main flower --loglevel=INFO
+
+celery -A src.main flower --loglevel=INFO
+# --OR--
+celery --broker="redis://localhost:6379" flower --loglevel=INFO
 ```
 *refer to this page [flower docs](https://flower.readthedocs.io/en/latest/install.html#usage)
